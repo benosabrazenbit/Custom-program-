@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TindahanPro - Store Management</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="header">
+    <div>
+      <h1>TindahanPro</h1>
+      <p>Sari-Sari Store Management System</p>
+    </div>
+    <span class="status">Store Manager</span>
+  </header>
+
+  <main class="container">
+
+    <section class="dashboard">
+      <h2>Dashboard</h2>
+      <div class="stats">
+        <div class="stat-card">
+          <p>Total Products</p>
+          <h2 id="totalProducts">0</h2>
+        </div>
+        <div class="stat-card">
+          <p>Total Stock</p>
+          <h2 id="totalStock">0</h2>
+        </div>
+        <div class="stat-card">
+          <p>Today's Sales</p>
+          <h2 id="todaySales">₱0.00</h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Inventory Management</h2>
+
+      <form id="productForm">
+        <input type="hidden" id="productId">
+
+        <div class="form-grid">
+          <input type="text" id="productName"
+            placeholder="Product name" required>
+
+          <input type="number" id="productPrice"
+            placeholder="Price (₱)" min="0.01" step="0.01" required>
+
+          <input type="number" id="productStock"
+            placeholder="Stock quantity" min="0" step="1" required>
+        </div>
+
+        <button type="submit" id="saveProductBtn">
+          Add Product
+        </button>
+      </form>
+
+      <input type="search" id="searchProduct"
+        placeholder="Search product..." class="search">
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Stock</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productTable"></tbody>
+        </table>
+      </div>
+
+      <p id="inventoryMessage" class="message"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Record a Sale</h2>
+
+      <form id="saleForm">
+        <div class="form-grid">
+          <select id="saleProduct" required>
+            <option value="">Select a product</option>
+          </select>
+
+          <input type="number" id="saleQuantity"
+            placeholder="Quantity" min="1" step="1" required>
+        </div>
+
+        <button type="submit">Complete Sale</button>
+      </form>
+
+      <p id="saleMessage" class="message"></p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <h2>Sales History</h2>
+        <button type="button" id="exportSalesBtn" class="secondary">
+          Export CSV
+        </button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="salesTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> TindahanPro. Store Management System.</p>
+    </footer>
+
+  </main>
+
+</body>
+</html>
